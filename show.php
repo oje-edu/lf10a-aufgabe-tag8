@@ -12,7 +12,7 @@
     <?php require_once('./nav.php') ?>
   </div>
 
-<span class="navOpen" onclick="openNav()">Navigation</span>
+<!-- <span class="navOpen" onclick="openNav()">Navigation</span> -->
 
 <div id="main">
   <?php require_once('./header.php') ?>

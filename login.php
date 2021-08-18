@@ -14,7 +14,7 @@
     <?php include_once "./nav.php" ?>
   </div>
 
-  <span class="navOpen" onclick="openNav()">Navigation</span>
+  <!-- <span class="navOpen" onclick="openNav()">Navigation</span> -->
 
   <div id="main">
    <?php include_once "./header.php" ?>
