@@ -420,6 +420,19 @@ li hr {
   background-color: crimson;
 }
 
+table {
+  border: 1px solid crimson;
+  border-collapse: collapse;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+table tr {
+  border: none;
+}
+
 /* Scrollbar */
 /* Firefox */
 * {

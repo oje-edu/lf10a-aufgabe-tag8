@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -22,6 +24,20 @@
         <h2>Herzlich willkommen!</h2>
         <p>wir sind Ihr Online-Reisebüro, spezialisiert auf Flugreisen in europäische Metropolen und die entsprechenden
           Hotelaufenthalte. wir wünschen Ihnen einen angenehmen Aufenthalt - auf unserer Webseite und Ihrem Urlaub!</p>
+
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Stadt</th>
+            <th>Land</th>
+          </tr>
+          <tr>
+            <?php include_once "db/db_connect.php" ?>
+          </tr>
+        </table>
+
+
+
       </div>
      </section>
    </main>
