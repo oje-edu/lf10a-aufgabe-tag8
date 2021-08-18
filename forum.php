@@ -10,13 +10,11 @@
 </head>
 <body>
   <div id="mySidenav" class="sidenav">
-    <?php include_once "./nav.php" ?>
+    <?php include_once "inc/nav.php" ?>
   </div>
 
-  <!-- <span class="navOpen" onclick="openNav()">Navigation</span> -->
-
   <div id="main">
-   <?php include_once "./header.php" ?>
+   <?php include_once "inc/header.php" ?>
     <main>
       <div class="container">
         <h2>Forumsbeitrag verfassen</h2>

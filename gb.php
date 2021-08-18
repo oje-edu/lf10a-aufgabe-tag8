@@ -25,13 +25,11 @@
 </head>
 <body>
   <div id="mySidenav" class="sidenav">
-    <?php require_once('./nav.php') ?>
+    <?php require_once('inc/nav.php') ?>
   </div>
 
-  <!-- <span class="navOpen" onclick="openNav()">Navigation</span> -->
-
   <div id="main">
-  <?php require_once('./header.php') ?>
+  <?php require_once('inc/header.php') ?>
     <main>
     <section>
       <div class="container">
