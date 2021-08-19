@@ -1,6 +1,7 @@
 <?php
  if(isset($_POST['submit'])){
   $email = $_POST['email'];
+  $password = $_POST['password'];
   $vname = $_POST['vname'];
   $nname = $_POST['nname'];
   $bday = $_POST['bday'];
@@ -12,6 +13,7 @@
   $date = date('d.m.Y H:i:s');
   $user_ip= $_SERVER['REMOTE_ADDR'];
   $user_agent = $_SERVER['HTTP_USER_AGENT'];
+
 
   $zeile = $email . "|" . $vname . "|" . $nname . "|" . $bday . "|" . $strasse . "|" . $hnr . "|" . $plz . "|" . $ort . "|" . $land . "|" . $user_ip . "|" . $user_agent . "|" . "\n";
 
@@ -41,7 +43,7 @@
    <?php include_once "inc/header.php" ?>
     <main>
       <div class="container">
-        <!-- <h2>Kundenanmeldung</h2>
+        <h2>Kundenanmeldung</h2>
         <p>Bitte geben Sie hier Ihre E-Mail-Adresse ein, falls Sie bereits registriert sind:</p>
         <form action="./login.php" method="POST">
           <div class="row">
@@ -58,12 +60,12 @@
             <input type="hidden" name="b" value="<?php echo ($buchnr); ?>" />
             <input type="hidden" name="bt" value="<?php echo ($buchtxt); ?>" />
           </div>
-        </form> -->
+        </form>
 
         <h2>Neuer Kunde</h2>
         <p>Bitte geben Sie hier Ihre Daten ein, falls Sie ein neuer Kunde sind (die mit * markierten Felder sind Pflichtangaben):</p>
 
-        <form action="./login.php" method="POST">
+        <form <?php echo $_SERVER['PHP_SELF']?>  method="POST">
           <fieldset>
             <legend><h3>Persönliches</h3></legend>
             <div class="row">
