@@ -32,7 +32,7 @@
             <th>Land</th>
           </tr>
           <tr>
-            <?php include_once "db/db_connect.php" ?>
+            <?php include_once "db/conn_examples/db_con_mysql_query.php" ?>
           </tr>
         </table>
 

@@ -1,3 +1,24 @@
+<?php
+ if(isset($_POST['submit'])){
+  $email = $_POST['email'];
+  $vname = $_POST['vname'];
+  $nname = $_POST['nname'];
+  $bday = $_POST['bday'];
+  $strasse = $_POST['strasse'];
+  $hnr = $_POST['hnr'];
+  $plz = $_POST['plz'];
+  $ort = $_POST['ort'];
+  $land = $_POST['land'];
+  $date = date('d.m.Y H:i:s');
+  $user_ip= $_SERVER['REMOTE_ADDR'];
+  $user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+  $zeile = $email . "|" . $vname . "|" . $nname . "|" . $bday . "|" . $strasse . "|" . $hnr . "|" . $plz . "|" . $ort . "|" . $land . "|" . $user_ip . "|" . $user_agent . "|" . "\n";
+
+  file_put_contents("newuser.csv", $zeile, FILE_APPEND);
+  header('Location: ./newuser.php');
+ }
+?>
 <!DOCTYPE html>
 <html lang="de">
 
@@ -14,15 +35,15 @@
     <?php include_once "inc/nav.php" ?>
   </div>
 
-  <!-- <span class="navOpen" onclick="openNav()">Navigation</span> -->
+
 
   <div id="main">
    <?php include_once "inc/header.php" ?>
     <main>
       <div class="container">
-        <h2>Kundenanmeldung</h2>
+        <!-- <h2>Kundenanmeldung</h2>
         <p>Bitte geben Sie hier Ihre E-Mail-Adresse ein, falls Sie bereits registriert sind:</p>
-        <form action="./testlogin.php" method="POST">
+        <form action="./login.php" method="POST">
           <div class="row">
             <div class="col-25">
               <label for="login">E-mail:</label>
@@ -37,12 +58,12 @@
             <input type="hidden" name="b" value="<?php echo ($buchnr); ?>" />
             <input type="hidden" name="bt" value="<?php echo ($buchtxt); ?>" />
           </div>
-        </form>
+        </form> -->
 
         <h2>Neuer Kunde</h2>
         <p>Bitte geben Sie hier Ihre Daten ein, falls Sie ein neuer Kunde sind (die mit * markierten Felder sind Pflichtangaben):</p>
 
-        <form action="./newuser.php" method="POST">
+        <form action="./login.php" method="POST">
           <fieldset>
             <legend><h3>Persönliches</h3></legend>
             <div class="row">
@@ -68,7 +89,7 @@
                 <label for="name">Familienname:*</label>
               </div>
               <div class="col-75">
-                <input type="text" name="name" id="name" placeholder="Musterfrau" required />
+                <input type="text" name="nname" id="nname" placeholder="Musterfrau" required />
               </div>
             </div>
             <div class="row">
@@ -76,7 +97,7 @@
                 <label for="geb">Geburtsdatum:*</label>
               </div>
               <div class="col-75">
-                <input type="date" name="geb" id="geb" required />
+                <input type="date" name="bday" id="bday" required />
               </div>
             </div>
           </fieldset>
@@ -122,13 +143,13 @@
               <div class="col-75">
                 <select name="land" id="land" required>
                   <option value="default">[Bitte wählen]</option>
-                  <option value="1">Deutschland</option>
-                  <option value="2">Österreich</option>
-                  <option value="3">Schweiz</option>
-                  <option value="4">Dänemark</option>
-                  <option value="5">Norwegen</option>
-                  <option value="6">Schweden</option>
-                  <option value="7">UdSSR</option>
+                  <option value="deutschland">Deutschland</option>
+                  <option value="oesterreich">Österreich</option>
+                  <option value="schweiz">Schweiz</option>
+                  <option value="daenemark">Dänemark</option>
+                  <option value="norwegen">Norwegen</option>
+                  <option value="schweden">Schweden</option>
+                  <option value="udssr">UdSSR</option>
                 </select>
               </div>
             </div>
@@ -138,7 +159,7 @@
           <div class="row">
             <input type="reset" value="Zurücksetzen">
 
-            <input type="submit" value="Eintragen">
+            <input type="submit" name="submit" value="Eintragen">
           </div>
         </form>
       </div>
