@@ -55,7 +55,7 @@
           </div>
           <div class="row">
             <div class="col-25">
-              <label for="password">Password:</label>
+              <label for="password">Passwort:</label>
             </div>
             <div class="col-75">
               <input type="password" name="password" id="password" placeholder="Bitte Passwort eingaben" required />
