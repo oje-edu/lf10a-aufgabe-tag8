@@ -24,7 +24,7 @@
       <main>
         <section>
           <div class="container">
-          <h1>BenutzerSeite</h1>
+          <h1>Benutzer Seite</h1>
           <p>Hallo <?php echo $_SESSION['user_id']; ?>!</p>
         </section>
       </main>

@@ -69,8 +69,7 @@
                 <?php
               } else {
                   if (password_verify($password, $result['password'])) {
-                      $_SESSION['user_id'] = $result['id'];
-                      $_SESSION['user_fname'] = $result['fname']; ?>
+                      $_SESSION['user_id'] = $result['fname'];?>
                       <div class="login-success">
                         <p>Du hast Dich erfolgreich eingeloggt!</p>
                       </div>
