@@ -1,27 +1,4 @@
-<?php
-    session_start();
-    include('db/config.php');
-    if (isset($_POST['login'])) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $query = $connection->prepare("SELECT * FROM rb_users WHERE email=:email");
-        $query->bindParam("email", $email, PDO::PARAM_STR);
-        $query->execute();
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-        if (!$result) {
-            echo("<p class='error'>Benutzername-ID oder Passwort ist falsch!</p>");
-        } else {
-            if (password_verify($password, $result['password'])) {
-                $_SESSION['user_id'] = $result['id'];
-                $_SESSION['user_fname'] = $result['fname'];
-                echo( "<p class='success''>Du hast Dich erfolgreich eingeloggt!</p>");
-                header("Location: member.php");
-            } else {
-                echo ("<p class='error'>Benutzername-ID oder Passwort ist falsch!</p>");
-            }
-        }
-    }
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="de">
 
@@ -41,6 +18,18 @@
   <div id="main">
    <?php include_once "inc/header.php" ?>
     <main>
+<?php
+    include('db/config.php');
+    if (isset($_POST['login'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $query = $connection->prepare("SELECT * FROM rb_users WHERE email=:email");
+        $query->bindParam("email", $email, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+    }
+?>
+
       <div class="container">
         <h2>Kundenanmeldung</h2>
         <p>Bitte geben Sie hier Ihre E-Mail-Adresse ein, falls Sie bereits registriert sind:</p>
@@ -70,6 +59,30 @@
             Du hast noch kein Konto? <a href="./registration.php">Konto erstellen</a>
           </div>
         </form>
+          <div class="row">
+            <div class="col-75">
+              <?php
+              if (!$result) { ?>
+                <div class="login-error">
+                  <p>Benutzername-ID oder Passwort ist falsch!</p>
+                </div>
+                <?php
+              } else {
+                  if (password_verify($password, $result['password'])) {
+                      $_SESSION['user_id'] = $result['id'];
+                      $_SESSION['user_fname'] = $result['fname']; ?>
+                      <div class="login-success">
+                        <p>Du hast Dich erfolgreich eingeloggt!</p>
+                      </div>
+                      <?php
+                      header("Location: member.php");
+                  } else {
+                      echo ("<p class='login-error'>Benutzername-ID oder Passwort ist falsch!</p>");
+                  }
+              }
+              ?>
+            </div>
+          </div>
       </div>
     </main>
   </div>

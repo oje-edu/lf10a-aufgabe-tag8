@@ -438,6 +438,31 @@ table tr {
   border: none;
 }
 
+.login-success {
+  /* margin-left: 200px;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  background-color: lightgreen;
+  color: var(--green-color);
+}
+
+.login-error {
+  /* margin-left: 200px;
+  position: relative;
+  height: 100px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  background-color: lightred;
+  color: crimson;
+}
+
 /* Scrollbar */
 /* Firefox */
 * {
