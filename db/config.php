@@ -1,7 +1,11 @@
 <?php
-$conn = mysqli_connect("localhost","root","","reisebuero");
-
-if(!$conn){
-	die("Connection error: " . mysqli_connect_error());
-}
+    define('USER', 'root');
+    define('PASSWORD', '');
+    define('HOST', 'localhost');
+    define('DATABASE', 'reisebuero');
+    try {
+        $connection = new PDO("mysql:host=".HOST.";dbname=".DATABASE, USER, PASSWORD);
+    } catch (PDOException $e) {
+        exit("Error: " . $e->getMessage());
+    }
 ?>

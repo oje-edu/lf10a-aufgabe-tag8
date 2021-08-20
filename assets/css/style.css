@@ -318,6 +318,7 @@ fieldset {
 input[type="text"],
 input[type="email"],
 input[type="date"],
+input[type="password"],
 select,
 textarea {
   width: 100%;
@@ -391,6 +392,10 @@ input[type="reset"]:hover {
   float: left;
   width: 25%;
   margin-top: 6px;
+}
+
+.reset {
+  margin-left: 10px;
 }
 
 .col-75 {

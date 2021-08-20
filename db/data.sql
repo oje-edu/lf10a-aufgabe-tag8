@@ -21,6 +21,27 @@ USE reisebuero;
 -- Table structure for table `rb_airlines`
 --
 
+DROP TABLE IF EXISTS `rb_users`;
+CREATE TABLE `rb_users` (
+`id` INT(11) NOT NULL AUTO_INCREMENT,
+`fname` VARCHAR(255) NULL DEFAULT NULL,
+`lname` VARCHAR(255) NULL DEFAULT NULL,
+`email` VARCHAR(255) NULL DEFAULT NULL,
+`password` VARCHAR(255) NULL DEFAULT NULL,
+`bday` VARCHAR(25) NULL DEFAULT NULL,
+`strasse` VARCHAR(200) NULL DEFAULT NULL,
+`hnr` VARCHAR(10) NULL DEFAULT NULL,
+`plz` INT(5) NULL DEFAULT NULL,
+`ort` VARCHAR(38) NULL DEFAULT NULL,
+`land` VARCHAR(38) NULL DEFAULT NULL,
+
+PRIMARY KEY (`id`)
+)
+COLLATE='utf8mb4_unicode_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=2
+;
+
 DROP TABLE IF EXISTS `rb_airlines`;
 CREATE TABLE `rb_airlines` (
   `ai_nr` int(11) NOT NULL auto_increment,
