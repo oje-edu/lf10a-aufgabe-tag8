@@ -13,6 +13,7 @@
     header('Location: ./show.php');
   } else {
 ?>
+  <?php  session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="de">
